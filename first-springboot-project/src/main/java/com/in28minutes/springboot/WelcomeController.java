@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WelcomeController {
 	
+	private WelcomeService service = new WelcomeService();
+	
 	@RequestMapping("/welcome")
 	public String welcome() {
-		return "This is great! I can see it on screen!";
+		return service.retriveWelcomeMessage();
 	}
+}
 
+class WelcomeService {
+	public String retriveWelcomeMessage() {
+		return "Good Morning!";
+	}
 }
